@@ -18,7 +18,6 @@ from django.contrib import admin
 from .views import display_question
 
 urlpatterns = [
-#   url(r'^$', display_question, name='display_question1'),
-    url(r'^question/(?P<question_id>[0-9]+)/$', display_question, name='display_question2'),
+    url(r'^question/(?P<question_id>[0-9]+)/$', display_question, name='display_question'),
     url(r'^admin/', admin.site.urls),
 ]
