@@ -7,14 +7,14 @@ from django.db import models
 class Question(models.Model):
 	question_text = models.CharField(max_length=200)
 	# question_image later
+	def __str__(self):
+		return self.question_text
 	 
 
 class Choice(models.Model):
 	choice_text = models.CharField(max_length=200)
-	destination = models.CharField(max_length=200)
+	destination = models.PositiveIntegerField
 	question_id = models.ForeignKey('Question', related_name='choices')
 
-	"""
-	do I map choice to question and return a question_id in the destination field?
-
-	"""
+	def __str__(self):
+		return self.choice_text # how to get it to return foreign key too?

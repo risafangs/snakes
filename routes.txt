@@ -1,0 +1,15 @@
+(1) OH NO YOU'RE IN A DARK ROOM
+
+a Run away screaming -> 2
+b Huddle into a ball -> 3
+
+(2) AS YOU RUN, YOU TRIP
+
+c OMG it's a broom! -> 4
+d YAS A WEAPON. Fight!!! -> 5
+
+(3) SNAKES CRAWL OVER YOU EWW
+
+a Cry -> 6
+b Bite -> 7
+
