@@ -8,7 +8,11 @@ from .models import Question, Choice
 
 def display_question(request, question_id):
 	question = get_object_or_404(Question, pk=question_id)
-	choices = question.choices  
+	choices = question.choices
+	""" I don't understand what question.choices does or how to pass it a question_id
+		I can't say question_id = question_id?
+	"""
+
 	context = {
 		'fun_question': question,
 		'fun_choices': choices

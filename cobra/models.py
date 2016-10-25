@@ -17,4 +17,4 @@ class Choice(models.Model):
 	question_id = models.ForeignKey('Question', related_name='choices')
 
 	def __str__(self):
-		return self.choice_text # how to get it to return foreign key too?
+		return self.choice_text # how to get it to return foreign key in shell too?
