@@ -4,9 +4,13 @@
 	</head>
 	<body>
 
-	<h1> {{ fun_question }} </h1>
+	<h1> {{ fun_question.question_text }} </h1>
 
-	<p> {{ fun_choices }}
+	<p> {% for choice in fun_choices %}
+
+		<A href="{% url 'display_question' choice.destination_id %}">{{ choice.choice_text }}</A><br>
+
+		{% endfor %}
 	</p> <!-- how do I use the destination? -->
 
 	</body>
