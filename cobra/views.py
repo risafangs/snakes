@@ -14,4 +14,4 @@ def display_question(request, question_id):
 		'fun_question': question,
 		'fun_choices': choices
 	}
-	return render(request, 'index.html', context)
+	return render(request, 'hello.html', context)

@@ -1,0 +1,22 @@
+<html>
+	<head>
+		<title> title of my page </title>
+	</head>
+	<body>
+
+	<h1> {{ fun_question.question_text }} </h1>
+
+
+	<p> 
+		<img src="{{ fun_question.image.url }}"/><br>
+
+		{% for choice in fun_choices %}
+
+		<A href="{% url 'display_question' choice.destination_id %}">{{ choice.choice_text }}</A>
+		<br>
+
+		{% endfor %}
+	</p>
+
+	</body>
+</html>
