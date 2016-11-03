@@ -17,9 +17,10 @@ from django.conf.urls import url
 from django.conf import settings
 from django.contrib import admin
 from django.conf.urls.static import static
-from .views import display_question
+from .views import display_question, SMSQuestion
 
 urlpatterns = [
     url(r'^question/(?P<question_id>[0-9]+)/$', display_question, name='display_question'),
+    url(r'^smsquestion/', SMSQuestion.as_view(), name='smsquestion'),
     url(r'^admin/', admin.site.urls),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

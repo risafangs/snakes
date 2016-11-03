@@ -9,27 +9,21 @@
 <link rel="stylesheet" href="{% static 'static/stylesheet.css' %}">
 
 	</head>
-
-
-
 	<body>
 
-	<h1><b> {{ fun_question.question_text }} </b></h1>
+<h2> look, it's a form </h2>
+
+<form role="form" action="" method="post">
+
+    {% csrf_token %}
+
+    {{ form.as_p }}
+
+    <button type="submit">Submit</button>
+
+</form>
 
 
-	<p> {% if fun_question.image.url is not None %}
+</body>
 
-		<img src="{{ fun_question.image.url }}"/><br> 
-
-		{% endif %}
-
-		{% for choice in fun_choices %}
-
-		<A href="{% url 'display_question' choice.destination_id %}">{{ choice.choice_text }}</A>
-		<br>
-
-		{% endfor %}
-	</p>
-
-	</body>
 </html>
