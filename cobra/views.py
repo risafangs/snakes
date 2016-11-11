@@ -2,9 +2,9 @@
 from __future__ import unicode_literals
 from django.shortcuts import render, get_object_or_404
 from django.http import Http404, HttpResponse
-from .forms import SMSQuestionForm
-from django.views.generic.edit import FormView 
-from django.urls import reverse_lazy
+from .forms import ChoiceForm
+from django.views.generic.edit import FormView
+from django.urls import reverse_lazy, reverse
 from .models import Question, Choice
 from twilio.rest import TwilioRestClient
 import os
@@ -21,22 +21,22 @@ def display_question(request, question_id):
 	}
 	return render(request, 'hello.html', context)
 
-class SMSQuestion(FormView):
-	form_class = SMSQuestionForm
-	template_name = 'smsquestion.html'
-	success_url = reverse_lazy('smsquestion')
+class ChoiceFormView(FormView):
+	form_class = ChoiceForm
+	template_name = 'choice.html'
+	success_url = reverse_lazy('choice')
 
-"""
 	def form_valid(self, form):
-		account_sid = "AC007ffbc7fa49cdc774c904ecf0ad4dfd"
-		auth_token = os.getenv('TWILIO_TOKEN')
+		# client = TwilioRestClient(account='AC007ffbc7fa49cdc774c904ecf0ad4dfd', token='meow')
+		return super(ChoiceFormView, self).form_valid(form) # returns to self
 
-		print TWILIO_TOKEN
+	def get_context_data(self):
+		context = super(ChoiceFormView, self).get_context_data()
+		choice = Choice.objects.get(pk=self.kwargs['choice_id'])
+		context['choice'] = choice
+		return context
 
-		client = TwilioRestClient(account_sid, auth_token)
-
-		message = client.messages.create(to="+17084464335", from_="+12023350157 ",
-		body="There are snakes here!")
-
-		return super(ContactView, self).form_valid(form)
-		"""
+	def get_success_url(self):
+		choice = Choice.objects.get(pk=self.kwargs['choice_id'])
+		next_page = reverse('display_question', kwargs={'question_id': choice.destination_id})
+		return next_page

@@ -2,7 +2,7 @@
 	<head>
 		<title> fun times </title>
 
-{% load static %} 
+{% load static %}
 
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
@@ -19,13 +19,13 @@
 
 	<p> {% if fun_question.image.url is not None %}
 
-		<img src="{{ fun_question.image.url }}"/><br> 
+		<img src="{{ fun_question.image.url }}"/><br>
 
 		{% endif %}
 
 		{% for choice in fun_choices %}
 
-		<A href="{% url 'display_question' choice.destination_id %}">{{ choice.choice_text }}</A>
+		<A href="{% url 'choice' choice.pk %}">{{ choice.choice_text }}</A>
 		<br>
 
 		{% endfor %}
