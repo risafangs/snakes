@@ -11,6 +11,11 @@ https://docs.djangoproject.com/en/dev/ref/settings/
 """
 
 import os
+from os.path import join, dirname
+from dotenv import load_dotenv
+
+dotenv_path = join(dirname(__file__), '.env')
+load_dotenv(dotenv_path)
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -123,3 +128,17 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = '/tmp/'
 
 STATIC_URL = '/static/'
+
+# my secrets
+
+BT_MERCHANT_ID = os.environ.get("BT_MERCHANT_ID")
+
+BT_PUBLIC_KEY = os.environ.get("BT_PUBLIC_KEY")
+
+BT_PRIVATE_KEY = os.environ.get("BT_PRIVATE_KEY")
+
+SENDGRID_API_KEY = os.environ.get("SENDGRID_API_KEY")
+
+TWILIO_TOKEN = os.environ.get("TWILIO_TOKEN")
+
+TWILIO_ACCOUNT_ID = os.environ.get("TWILIO_ACCOUNT_ID")

@@ -1,0 +1,40 @@
+<html>
+<head>
+<title>
+pay me money
+</titLe>
+
+{% load static %}
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="{% static 'static/stylesheet.css' %}">
+
+    <script src="https://js.braintreegateway.com/js/braintree-2.30.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+<h1> {{ choice.choice_text }} </h1>
+
+<div id="dropin-container"></div>
+<form id="checkout-form">
+  <input type='submit' value='Pay'/>
+</form>
+
+
+
+</body>
+
+<script type="text/javascript">
+$( document ).ready(function() {
+braintree.setup('eyJ2ZXJzaW9uIjoyLCJhdXRob3JpemF0aW9uRmluZ2VycHJpbnQiOiI3YmY0NjkwOTRkY2I5NTExZTU5Mjc3YzFjNDNiODMzNDBjZjA1YjZlODhiNGY1YzdkNzliMjg4ZGEwNzg3YTc4fGNyZWF0ZWRfYXQ9MjAxNi0xMi0yMlQwMDoxMDo0MS4zMjE1MTM5MDErMDAwMFx1MDAyNm1lcmNoYW50X2lkPTNwODR2czhtcmRza3FrdnBcdTAwMjZwdWJsaWNfa2V5PXc1cXFnY3F2a3poY3o4OGoiLCJjb25maWdVcmwiOiJodHRwczovL2FwaS5zYW5kYm94LmJyYWludHJlZWdhdGV3YXkuY29tOjQ0My9tZXJjaGFudHMvM3A4NHZzOG1yZHNrcWt2cC9jbGllbnRfYXBpL3YxL2NvbmZpZ3VyYXRpb24iLCJjaGFsbGVuZ2VzIjpbImN2diJdLCJlbnZpcm9ubWVudCI6InNhbmRib3giLCJjbGllbnRBcGlVcmwiOiJodHRwczovL2FwaS5zYW5kYm94LmJyYWludHJlZWdhdGV3YXkuY29tOjQ0My9tZXJjaGFudHMvM3A4NHZzOG1yZHNrcWt2cC9jbGllbnRfYXBpIiwiYXNzZXRzVXJsIjoiaHR0cHM6Ly9hc3NldHMuYnJhaW50cmVlZ2F0ZXdheS5jb20iLCJhdXRoVXJsIjoiaHR0cHM6Ly9hdXRoLnZlbm1vLnNhbmRib3guYnJhaW50cmVlZ2F0ZXdheS5jb20iLCJhbmFseXRpY3MiOnsidXJsIjoiaHR0cHM6Ly9jbGllbnQtYW5hbHl0aWNzLnNhbmRib3guYnJhaW50cmVlZ2F0ZXdheS5jb20vM3A4NHZzOG1yZHNrcWt2cCJ9LCJ0aHJlZURTZWN1cmVFbmFibGVkIjp0cnVlLCJwYXlwYWxFbmFibGVkIjp0cnVlLCJwYXlwYWwiOnsiZGlzcGxheU5hbWUiOiJSYWluYm93IFVuaWNvcm5zIiwiY2xpZW50SWQiOm51bGwsInByaXZhY3lVcmwiOiJodHRwOi8vZXhhbXBsZS5jb20vcHAiLCJ1c2VyQWdyZWVtZW50VXJsIjoiaHR0cDovL2V4YW1wbGUuY29tL3RvcyIsImJhc2VVcmwiOiJodHRwczovL2Fzc2V0cy5icmFpbnRyZWVnYXRld2F5LmNvbSIsImFzc2V0c1VybCI6Imh0dHBzOi8vY2hlY2tvdXQucGF5cGFsLmNvbSIsImRpcmVjdEJhc2VVcmwiOm51bGwsImFsbG93SHR0cCI6dHJ1ZSwiZW52aXJvbm1lbnROb05ldHdvcmsiOnRydWUsImVudmlyb25tZW50Ijoib2ZmbGluZSIsInVudmV0dGVkTWVyY2hhbnQiOmZhbHNlLCJicmFpbnRyZWVDbGllbnRJZCI6Im1hc3RlcmNsaWVudDMiLCJiaWxsaW5nQWdyZWVtZW50c0VuYWJsZWQiOnRydWUsIm1lcmNoYW50QWNjb3VudElkIjoiNGsyNDNzMndwM2N5ZmI0aiIsImN1cnJlbmN5SXNvQ29kZSI6IlVTRCJ9LCJjb2luYmFzZUVuYWJsZWQiOmZhbHNlLCJtZXJjaGFudElkIjoiM3A4NHZzOG1yZHNrcWt2cCIsInZlbm1vIjoib2ZmIn0=',
+'dropin', {
+  container: 'dropin-container',
+  form: 'checkout-form'
+});
+});
+
+</script>
+
+</html>

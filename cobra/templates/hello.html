@@ -1,35 +1,60 @@
 <html>
-	<head>
-		<title> fun times </title>
+<head>
+    <title> fun times </title>
 
-{% load static %}
+    {% load static %}
 
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-<link rel="stylesheet" href="{% static 'static/stylesheet.css' %}">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="{% static 'static/stylesheet.css' %}">
 
-	</head>
+    <script src="https://js.braintreegateway.com/js/braintree-2.30.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
 
-
-
-	<body>
-
-	<h1><b> {{ fun_question.question_text }} </b></h1>
+</head>
 
 
-	<p> {% if fun_question.image.url is not None %}
+<body>
 
-		<img src="{{ fun_question.image.url }}"/><br>
+<h1><b> {{ fun_question.question_text }} </b></h1>
 
-		{% endif %}
 
-		{% for choice in fun_choices %}
+<p> {% if fun_question.image.url is not None %}
 
-		<A href="{% url 'choice' choice.pk %}">{{ choice.choice_text }}</A>
-		<br>
+    <img src="{{ fun_question.image.url }}"/><br>
 
-		{% endfor %}
-	</p>
+    {% endif %}
 
-	</body>
+    {% for choice in fun_choices %}
+		{% if choice.choice_type == 'LNK' %}
+
+         <A href="{% url 'display_question' choice.destination_id %}">{{ choice.choice_text }}</A>
+
+        {% elif choice.choice_type == 'SMS' %}
+
+        <A href="{% url 'choice' choice.pk %}">{{ choice.choice_text }}</A>
+
+        {% elif choice.choice_type == 'EML' %}
+
+        <A href="{% url 'email' choice.pk %}">{{ choice.choice_text }}</A>
+
+        {% elif choice.choice_type == 'BT' %}
+
+        <a href="{% url 'braintree' choice.pk %}"> {{ choice.choice_text }} </A>
+
+
+
+        {% else %}
+
+<p> cry </p>
+
+        {% endif %}
+    <br>
+
+    {% endfor %}
+</p>
+
+
+
+</body>
 </html>
