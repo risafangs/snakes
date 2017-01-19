@@ -1,0 +1,19 @@
+<html>
+	<head>
+		<title> fun times </title>
+
+        {% load static %}
+
+    <link rel="stylesheet" href="{% static 'stylesheet.css' %}">
+
+	</head>
+
+<body>
+
+<h1> this is definitely the landing page </h1>
+
+ <a href="{% url 'display_question' 9 %}"> have fun </A>
+
+</body>
+
+</html>

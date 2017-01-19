@@ -2,27 +2,27 @@
 	<head>
 		<title> fun times </title>
 
-{% load static %}
+        {% load static %}
 
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-<link rel="stylesheet" href="{% static 'static/stylesheet.css' %}">
+    <link rel="stylesheet" href="{% static 'stylesheet.css' %}">
 
 	</head>
-	<body>
 
-<h2> {{ choice }}</h2>
+<body>
 
-<form role="form" action="" method="post">
+        <h2> {{ choice }}</h2>
 
-    {% csrf_token %}
+       <div class="form">
 
-    {{ form.as_p }}
+        <form role="form" action="" method="post">
 
-    <button type="submit">Submit</button>
+         {% csrf_token %}
 
-</form>
+         {{ form.as_p }}
 
+         <button type="submit" class="button">Submit</button>
+
+        </form></div>
 
 </body>
 

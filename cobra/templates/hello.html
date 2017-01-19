@@ -1,32 +1,30 @@
 <html>
 <head>
-    <title> fun times </title>
+    <title> welcome to snakeland </title>
 
     {% load static %}
 
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="{% static 'static/stylesheet.css' %}">
+    <link rel="stylesheet" href="{% static 'stylesheet.css' %}">
 
     <script src="https://js.braintreegateway.com/js/braintree-2.30.0.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
 
 </head>
 
-
 <body>
 
 <h1><b> {{ fun_question.question_text }} </b></h1>
 
+<br>
 
-<p> {% if fun_question.image.url is not None %}
+<div class="choices"> {% if fun_question.image.url is not None %}
 
     <img src="{{ fun_question.image.url }}"/><br>
 
     {% endif %}
 
     {% for choice in fun_choices %}
-		{% if choice.choice_type == 'LNK' %}
+		<p> {% if choice.choice_type == 'LNK' %}
 
          <A href="{% url 'display_question' choice.destination_id %}">{{ choice.choice_text }}</A>
 
@@ -42,17 +40,17 @@
 
         <a href="{% url 'braintree' choice.pk %}"> {{ choice.choice_text }} </A>
 
-
-
         {% else %}
 
 <p> cry </p>
 
         {% endif %}
-    <br>
+
+    </p>
 
     {% endfor %}
-</p>
+
+</div>
 
 
 
