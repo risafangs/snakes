@@ -1,2 +1,1 @@
-
-SNAKES ARE COOL
+This is a Django app I made as part of the [ChiPy](https://www.chipy.org/) mentorship program. It's a snake-themed(?) Choose Your Adventure style maze that includes tasks. The intention was to practice with Django and also learn how to implement APIs. The "finished" app includes a Braintree sandbox, Sendgrid, and Twilio integrations.
